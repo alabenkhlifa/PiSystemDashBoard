@@ -1,0 +1,63 @@
+{% extends '@User/Default/layout.html.twig' %}
+{% block title %}Mail{% endblock title %}
+
+{% block body %}
+    <div class="m-content">
+    <div class="m-portlet m-portlet--mobile">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">
+                        Dashboard
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th style="width: 150px">Server's Name</th>
+                        <th>IP Address</th>
+                        <th style="width: 200px">UP</th>
+                        <th>Warning</th>
+                        <th>Down</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Gaddour's PC</td>
+                        <td><code>192.168.180.133</code></td>
+                        <td>
+                            {% for key, value in table %}
+                                {% if value == 'OK' %}
+                                    <span class="m-badge m-badge--success">{{ key | upper }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for key, value in table %}
+                                {% if value == 'WARNING' %}
+                                    <span class="m-badge m-badge--warning">{{ key | upper }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for key, value in table %}
+                                {% if value == 'CRITICAL' %}
+                                    <span class="m-badge m-badge--danger">{{ key | upper }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% block scripts %}
+        <script src="{{ asset('assets/demo/default/custom/components/datatables/base/html-table.js') }}" type="text/javascript"></script>
+    {% endblock scripts %}
+{% endblock body %}

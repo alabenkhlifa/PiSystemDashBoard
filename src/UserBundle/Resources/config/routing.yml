@@ -1,0 +1,15 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+edirassa_remotecontrol:
+    path:     /remote-control
+    defaults: { _controller: UserBundle:Default:remote }
+edirassa_ftp:
+    path:     /ftp-client
+    defaults: { _controller: UserBundle:Default:ftp }
+edirassa_mail:
+    path:     /mail
+    defaults: { _controller: UserBundle:Default:mail }
+edirassa_dashboard:
+    path:     /dashboard
+    defaults: { _controller: UserBundle:Default:dashboard }
